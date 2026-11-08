@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Download Center</title>
+</head>
+
+<body>
+
+    <h3>File Download Center</h3>
+
+    <!-- File List Window -->
+
+    <iframe
+        id="fileWindow"
+        src="/file-list"
+        width="650"
+        height="180"
+        title="Available files">
+    </iframe>
+
+    <br><br>
+
+    <!-- Refresh Button -->
+
+    <button onclick="refreshFiles()">
+        Refresh File List
+    </button>
+
+    <p id="message"></p>
+
+
+    <script>
+
+        function refreshFiles() {
+
+            const frame =
+                document.getElementById("fileWindow");
+
+            frame.src = "/file-list?t=" + Date.now();
+
+            document.getElementById("message").textContent =
+                "File list refreshed.";
+
+        }
+
+    </script>
+
+</body>
+</html>
